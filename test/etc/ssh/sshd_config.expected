@@ -45,7 +45,7 @@ StrictModes yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
-AuthorizedKeysFile .ssh/authorized_keys .ssh/authorized_keys2
+AuthorizedKeysFile .ssh/authorized_keys
 
 #AuthorizedPrincipalsFile none
 
@@ -122,10 +122,10 @@ ClientAliveCountMax 0
 Banner /etc/issue.net
 
 # Accept locale-related environment variables
-#AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
-#AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
-#AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
-#AcceptEnv XMODIFIERS
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
 
 # override default of no subsystems
 Subsystem sftp /bin/false

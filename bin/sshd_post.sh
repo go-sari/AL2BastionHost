@@ -32,7 +32,7 @@ function modify_settings() {
   to_modify["KexAlgorithms"]="curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256"
   to_modify["LogLevel"]=VERBOSE
   to_modify["MACs"]="hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com"
-  to_modify["PermitTTY"]=yes
+  to_modify["PermitTTY"]=no
   to_modify["PrintLastLog"]=no
   to_modify["PubkeyAcceptedKeyTypes"]="ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-512,ssh-rsa,ssh-dss"
   to_modify["Subsystem sftp"]=/bin/false

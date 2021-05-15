@@ -11,7 +11,7 @@ teardown_file() {
 }
 
 @test "harden SSHD configuration" {
-	ROOT=${WORKDIR} ./sshd_post.sh
+	ROOT=${WORKDIR} ./bin/sshd_post.sh
 	diff -u ${WORKDIR}/etc/ssh/sshd_config test/etc/ssh/sshd_config.expected
 	diff -u ${WORKDIR}/etc/ssh/moduli test/etc/ssh/moduli.expected
 	# shellcheck disable=SC2046
@@ -21,6 +21,6 @@ teardown_file() {
 }
 
 @test "config CWAgent log access" {
-    ROOT=${WORKDIR} ./cwagent_post.sh
+    ROOT=${WORKDIR} ./bin/cwagent_post.sh
     diff -u ${WORKDIR}/etc/rsyslog.conf test/etc/rsyslog.conf.expected
 }
