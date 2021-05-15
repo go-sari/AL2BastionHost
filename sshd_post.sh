@@ -26,7 +26,7 @@ function modify_settings() {
   to_modify["AllowAgentForwarding"]=no
   to_modify["AllowUsers"]=ec2-user
   to_modify["AuthenticationMethods"]=publickey
-  to_modify["AuthorizedKeysFile"]=".ssh/authorized_keys .ssh/authorized_keys2"
+  to_modify["AuthorizedKeysFile"]=.ssh/authorized_keys
   to_modify["Banner"]=/etc/issue.net
   to_modify["Ciphers"]="chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr"
   to_modify["KexAlgorithms"]="curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256"
