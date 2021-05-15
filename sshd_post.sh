@@ -38,8 +38,7 @@ function modify_settings() {
   to_modify["Subsystem sftp"]=/bin/false
 
   local cfg=$ETC_SSH/sshd_config
-  local any_value="\S+"
-  local extra="\s*(#.*)?$"
+  local any_value=".*$"
   for key in "${!to_modify[@]}"; do
     local value=${to_modify[$key]}
     local esc_value=${value//\//\\/}  # escape any "/"
@@ -47,9 +46,9 @@ function modify_settings() {
     local dis_key="^(\s*)#\s*$key\s+"
 
     if grep -qiE "$ena_key" $cfg; then
-      sed -ri "s/${ena_key}${any_value}${extra}/\1$key $esc_value/" $cfg
+      sed -ri "s/${ena_key}${any_value}/\1$key $esc_value/i" $cfg
     elif grep -qiE "$dis_key" $cfg; then
-      sed -ri "0,/$dis_key/{s/${dis_key}${any_value}${extra}/\1$key $esc_value/}" $cfg
+      sed -ri "0,/$dis_key/{s/${dis_key}${any_value}/\1$key $esc_value/}" $cfg
     else
       echo "$key $value" >> $cfg
     fi
@@ -71,7 +70,7 @@ function disable_settings() {
 
   for regex in "${to_disable[@]}"; do
       echo "Disabling $regex"
-      sed -ri "s/^\s*${regex}\s*(#.*)?\$/#\0/" $cfg
+      sed -ri "s/^\s*${regex}\s*(#.*)?\$/#\0/i" $cfg
   done
 }
 
