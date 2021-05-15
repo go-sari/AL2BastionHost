@@ -64,7 +64,7 @@ function modify_settings() {
 function disable_settings() {
   # Settings to disable
   declare -a to_disable
-  to_disable=("HostKey\s+\S+dsa_key" "AcceptEnv(\s+\S+)*")
+  to_disable=("HostKey\s+\S+dsa_key")
 
   local cfg=$ETC_SSH/sshd_config
 
