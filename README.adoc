@@ -1,0 +1,37 @@
+== SSH Settings Tunings
+
+[cols="1,3m,3m",opts="header"]
+|===
+| Setting
+| Value from STIG
+| Value from SSH-Audit
+
+| AllowAgentForwarding | - | no
+| AllowUsers | - | ec2-user
+| AuthenticationMethods | - | publickey
+| AuthorizedKeysFile | - | .ssh/authorized_keys
+| Banner | - | /etc/issue.net
+| Ciphers | aes128-ctr,aes192-ctr,aes256-ctr | chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+| ClientAliveCountMax | 0 | -
+| ClientAliveInterval | 600 | -
+| Compression | delayed | -
+| GSSAPIAuthentication | no | -
+| HostbasedAuthentication | no | -
+| IgnoreRhosts | yes | -
+| IgnoreUserKnownHosts | yes | -
+| KerberosAuthentication | no | -
+| KexAlgorithms | - | curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
+| LogLevel | - | VERBOSE
+| MACs | hmac-sha2-256,hmac-sha2-512 | hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
+| PermitEmptyPasswords | no | -
+| PermitRootLogin | no | -
+| PermitTTY | - | no
+| PrintLastLog | yes | no
+| PubkeyAcceptedKeyTypes | - | ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-512,ssh-rsa,ssh-dss
+| StrictModes | yes | -
+| Subsystem sftp | - | /bin/false
+| X11Forwarding | no | -
+| X11UseLocalhost | yes | -
+
+
+|===
