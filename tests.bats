@@ -24,3 +24,8 @@ teardown_file() {
     ROOT=${WORKDIR} ./bin/cwagent_post.sh
     diff -u ${WORKDIR}/etc/rsyslog.conf test/etc/rsyslog.conf.expected
 }
+
+@test "config NAT instance" {
+    ROOT=${WORKDIR} ./bin/nat_post.sh
+    diff -u ${WORKDIR}/etc/sysctl.conf test/etc/sysctl.conf.expected
+}
